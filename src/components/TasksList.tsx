@@ -11,9 +11,10 @@ import { FaDeleteLeft } from "react-icons/fa6";
 
 interface Props {
   list: string[];
+  onDelete: (index: number) => void;
 }
 
-const TasksList = ({ list }: Props) => {
+const TasksList = ({ onDelete, list }: Props) => {
   return (
     <Box
       paddingX={5}
@@ -29,12 +30,16 @@ const TasksList = ({ list }: Props) => {
         List
       </Heading>
       <List>
-        {list.map((item) => {
+        {list.map((item, i) => {
           return (
-            <ListItem>
+            <ListItem key={i}>
               <Flex mb={3} justifyContent="space-between" alignItems="center">
                 <Heading whiteSpace="wrap">{item}</Heading>
-                <Button colorScheme="red" variant="outline">
+                <Button
+                  onClick={() => onDelete(i)}
+                  colorScheme="red"
+                  variant="outline"
+                >
                   <FaDeleteLeft color="red.100" fontSize="35px" />
                 </Button>
               </Flex>

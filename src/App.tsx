@@ -30,7 +30,12 @@ function App() {
         ></TaskForm>
       </GridItem>
       <GridItem area={"tasks"}>
-        <TasksList list={toDoList}></TasksList>
+        <TasksList
+          onDelete={(index) =>
+            setToDoList(toDoList.filter((item, i) => i !== index))
+          }
+          list={toDoList}
+        ></TasksList>
       </GridItem>
     </Grid>
   );

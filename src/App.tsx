@@ -2,9 +2,10 @@ import { Box, Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
 import "./App.css";
 import TaskForm from "./components/TasksForm";
 import { useState } from "react";
+import TasksList from "./components/TasksList";
 
 function App() {
-  const [toDoList, setToDoList] = useState([]);
+  const [toDoList, setToDoList] = useState<string[]>([]);
 
   return (
     <Grid
@@ -24,9 +25,13 @@ function App() {
         </Heading>
       </GridItem>
       <GridItem area={"new_task"}>
-        <TaskForm></TaskForm>
+        <TaskForm
+          onNewTask={(task) => setToDoList([...toDoList, task])}
+        ></TaskForm>
       </GridItem>
-      <GridItem area={"tasks"}></GridItem>
+      <GridItem area={"tasks"}>
+        <TasksList list={toDoList}></TasksList>
+      </GridItem>
     </Grid>
   );
 }

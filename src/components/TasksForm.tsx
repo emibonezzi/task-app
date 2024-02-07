@@ -26,11 +26,13 @@ const TaskForm = ({ onNewTask }: Props) => {
         }}
       >
         <Box mb={5}>
-          <label htmlFor="">
+          <label htmlFor="name">
             <Input ref={ref} id="name" placeholder="Type some task..."></Input>
           </label>
         </Box>
-        <Button colorScheme="blue"> Add new task!</Button>
+        <Button type="submit" colorScheme="blue">
+          Add new task!
+        </Button>
       </form>
     </Box>
   );

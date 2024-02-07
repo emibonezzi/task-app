@@ -33,7 +33,7 @@ const TasksList = ({ list }: Props) => {
           return (
             <ListItem>
               <Flex mb={3} justifyContent="space-between" alignItems="center">
-                <Heading>{item}</Heading>
+                <Heading whiteSpace="wrap">{item}</Heading>
                 <Button colorScheme="red" variant="outline">
                   <FaDeleteLeft color="red.100" fontSize="35px" />
                 </Button>

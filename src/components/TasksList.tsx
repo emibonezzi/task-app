@@ -55,11 +55,6 @@ const TasksList = ({ onDelete, list }: Props) => {
               key={i}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 30,
-              }}
             >
               <ListItem>
                 <Flex mb={3} justifyContent="space-between" alignItems="center">

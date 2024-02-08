@@ -38,7 +38,9 @@ function App() {
       <GridItem area={"tasks"}>
         <TasksList
           onDelete={(index) =>
-            setToDoList(toDoList.filter((item, i) => i !== index))
+            setToDoList(
+              toDoList.filter((item) => toDoList.indexOf(item) !== index)
+            )
           }
           list={toDoList}
         ></TasksList>

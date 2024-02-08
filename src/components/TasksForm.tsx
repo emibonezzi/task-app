@@ -8,8 +8,7 @@ import {
   InputGroup,
   Text,
 } from "@chakra-ui/react";
-import { useRef } from "react";
-import { FieldValue, FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MdAddTask } from "react-icons/md";
@@ -29,7 +28,7 @@ const TaskForm = ({ onNewTask }: Props) => {
     handleSubmit,
     reset,
     register,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   return (

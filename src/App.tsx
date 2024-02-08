@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { Grid, GridItem, Heading } from "@chakra-ui/react";
 import "./App.css";
 import TaskForm from "./components/TasksForm";
 import { useEffect, useState } from "react";
@@ -6,7 +6,7 @@ import TasksList from "./components/TasksList";
 
 function App() {
   const [toDoList, setToDoList] = useState<string[]>(
-    JSON.parse(localStorage.getItem("list")) || []
+    JSON.parse(localStorage.getItem("list") || "")
   );
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import {
   Heading,
-  Input,
   Button,
   Box,
   List,
@@ -10,7 +9,6 @@ import {
   shouldForwardProp,
 } from "@chakra-ui/react";
 import { FaTasks } from "react-icons/fa";
-import { FaDeleteLeft } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { motion, isValidMotionProp } from "framer-motion";
 
@@ -55,8 +53,8 @@ const TasksList = ({ onDelete, list }: Props) => {
           return (
             <ChakraBox
               key={i}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{
                 type: "spring",
                 stiffness: 100,

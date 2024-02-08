@@ -1,4 +1,10 @@
-import { Grid, GridItem, Heading } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Heading,
+  Switch,
+  useColorMode,
+} from "@chakra-ui/react";
 import "./App.css";
 import TaskForm from "./components/TasksForm";
 import { useEffect, useState } from "react";
@@ -8,6 +14,8 @@ function App() {
   const [toDoList, setToDoList] = useState<string[]>(
     JSON.parse(localStorage.getItem("list") || "")
   );
+
+  const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(toDoList));
@@ -28,6 +36,13 @@ function App() {
       <GridItem m={10} textAlign="center" area={"title"}>
         <Heading fontSize={{ base: "4xl", lg: "6xl" }}>
           Minimal ToDo App
+          <Switch
+            isChecked={colorMode === "dark"}
+            onChange={toggleColorMode}
+            colorScheme="green"
+            size={"lg"}
+            ml={3}
+          />
         </Heading>
       </GridItem>
       <GridItem area={"new_task"}>

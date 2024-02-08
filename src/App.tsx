@@ -12,7 +12,7 @@ import TasksList from "./components/TasksList";
 
 function App() {
   const [toDoList, setToDoList] = useState<string[]>(
-    JSON.parse(localStorage.getItem("list") || "")
+    JSON.parse(localStorage.getItem("list")!)
   );
 
   const { colorMode, toggleColorMode } = useColorMode();

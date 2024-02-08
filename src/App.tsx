@@ -11,11 +11,17 @@ import { useEffect, useState } from "react";
 import TasksList from "./components/TasksList";
 
 function App() {
-  const [toDoList, setToDoList] = useState<string[]>(
-    JSON.parse(localStorage.getItem("list")!)
-  );
+  const [toDoList, setToDoList] = useState<string[]>([]);
 
   const { colorMode, toggleColorMode } = useColorMode();
+
+  useEffect(() => {
+    const storageList = localStorage.getItem("list");
+    if (storageList !== null) {
+      // Check if the item actually exists
+      setToDoList(JSON.parse(storageList));
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(toDoList));
